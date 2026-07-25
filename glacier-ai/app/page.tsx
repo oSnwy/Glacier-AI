@@ -12,18 +12,18 @@ type chatMessage = {
 type personality = {id: string; name: string; description: string; greeting:string};
 
 const personalities: personality[] = [{
-  id: "",
-  name: "",
-  description: "",
-  greeting: ""},
-  {id: "",
-  name: "",
-  description: "",
-  greeting: ""},
-  {id: "",
-  name: "",
-  description: "",
-  greeting: ""}]
+  id: "tutor",
+  name: "Tutor",
+  description: "Learn concepts through simple, step-by-step explainations.",
+  greeting: "What would you like to learn today?"},
+  {id: "ideator",
+  name: "Ideator",
+  description: "Brainstorm ideas and turn them into practical plans",
+  greeting: "What should we brainstorm?"},
+  {id: "listener",
+  name: "Listener",
+  description: "Talk through your thoughts with a supportive friend",
+  greeting: "What is on your mind?"}]
 
 export default function Home(){
   const [selected, setSelected] = useState<personality | null>(null);
@@ -80,63 +80,61 @@ export default function Home(){
     return (
       <main className = "min-h-screen bg-slate-100 px-6 py-16">
         <div className = "mx-auto max-w-5xl">
-          <p className = "font-semibold text-blue-700">Glaxier AI
-
+          <p className = "font-semibold text-blue-700">Glacier AI</p>
             <h1 className = "mt-2 text-4xl font-bold text-slate-900">
               What kind of help do you need?
             </h1>
             <p className="mt-3 text-lg text-slate-600">
               Choose an AI personality to begin
             </p>
-            <div  className = "mt-10 grid gap-5 md: grid-cols-3">
+            <div  className = "mt-10 grid gap-5 md:grid-cols-3">
               {personalities.map((personality)=> (<button
                 key={personality.id}
                 type="button"
                 onClick={()=>setSelected(personality)}
-                className="rounded-2x1 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                <h2 className="text-x1 font-semibold text-slate-900">
+                className="rounded-2xl bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <h2 className="text-xl font-semibold text-slate-900">
                   {personality.name}
                 </h2>
                 <p className="mt-2 text-slate-600">
                   {personality.description}
                 </p>
               </button>
-              ))}
-            </div>
-          </p>
+            ))}
+          </div>
         </div>
       </main>
     )
   }
   return(
     <main className="min-h-screen bg-slate-100 px-4 py-6">
-      <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-3xl flex col">
+      <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-3xl flex-col">
         <header className="flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-blue-700">Glacier AI</p>
-            <h1 className="text-2x1 font-bold text-slate-900">
+            <h1 className="text-2xl font-bold text-slate-900">
               {selected.name}
             </h1>
-            <p className="text-slate-600">
+            <p className="text-slate-700">
               {selected.greeting}
             </p>
           </div>
           <button
             type = "button"
             onClick = {changePersonality}
-            className="rounded-x1 bg-white px-4 py-2 text-sm shadow-sm">
+            className="rounded-xl bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-sm hover:bg-slate-50">
               Change Personality
             </button>
         </header>
-        <section className="my-6 flex-1 space-y-4 overflow-y-auto rounded-2x1 bg-white p-5 shadow-sm">
+        <section className="my-6 flex-1 space-y-4 overflow-y-auto rounded-2xl bg-white p-5 shadow-sm">
           {messages.length === 0 &&(<p className="text-slate-500">{selected.greeting}</p>)}
           {messages.map((message, index)=>(
             <div
-              key = {'${message.role}-${index}'}
-              className = {message.role==="user"?"ml-auto max-w-[80%] whitespace-pre-wrap rounded 2x1 bg-slate-900 px-4 py-3 text-white":"mr-auto max-w-[80%] whitespace-pre-wrap rounded-2x1 bg-slate-100 px-4 py-3 text-slate-900"}
+              key = {`${message.role}-${index}`}
+              className = {message.role==="user"?"ml-auto max-w-[80%] whitespace-pre-wrap rounded-2xl bg-slate-900 px-4 py-3 text-white":"mr-auto max-w-[80%] whitespace-pre-wrap rounded-2xl bg-slate-100 px-4 py-3 text-slate-900"}
               >{message.content}</div>
           ))}
-          {isLoading&&(<div className="mr-auto rounded-2x1 bg-slate-100 px-4 py-3 text-slate-500">Thinking...</div>)}
+          {isLoading&&(<div className="mr-auto rounded-2xl bg-slate-100 px-4 py-3 text-slate-500">Thinking...</div>)}
         </section>
         <div className="flex gap-2">
           <input
@@ -145,7 +143,7 @@ export default function Home(){
             onKeyDown={handleKeyDown}
             placeholder="type your message..."
             disabled = {isLoading}
-            className="flex-1 rounded-x1 border border-slate-300 bg-white px-4 py-3 outline-none focus:border-slate-900"
+            className="flex-1 rounded-xl border border-slate-400 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:border-slate-900"
             />
           <button
             type="button"
