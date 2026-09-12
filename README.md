@@ -6,7 +6,7 @@ Instead of using one general-purpose chatbot for everything, users can choose a 
 
 The app supports both typed messages and voice input, with an optional voice-response mode.
 
-|   <img src="/images/home.jpg" width="333"></p> |   <img src="/images/tutor.jpg" width="334"></p> |  <img src="/images/session.jpg" width="333"></p> |
+|   <img src="/images/home.png" width="333"></p> |   <img src="/images/tutor.png" width="334"></p> |  <img src="/images/session.png" width="333"></p> |
 | - | - | - |
 
 ## Features
