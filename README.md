@@ -5,9 +5,7 @@ Glacier AI is a web-based AI assistant with multiple personalities designed for 
 Instead of using one general-purpose chatbot for everything, users can choose a personality depending on what they need, such as learning a concept, brainstorming ideas, or simply talking something through.
 
 The app supports both typed messages and voice input, with an optional voice-response mode.
-
-|   <img src="/images/home.png" width="333"></p> |   <img src="/images/tutor.png" width="334"></p> |  <img src="/images/session.png" width="333"></p> |
-| - | - | - |
+<img src="/images/home.png" width="1000"></p> 
 
 ## Features
 
@@ -19,6 +17,8 @@ The app supports both typed messages and voice input, with an optional voice-res
 - Responsive interface built with Next.js and Tailwind CSS
 - Secure server-side API requests
 - Hack Club AI integration
+
+<img src="/images/tutor.png" width="1000"></p>
 
 ## Current Personalities
 
@@ -166,6 +166,8 @@ Glacier AI supports voice input through the browser's Web Speech API.
 Press the **Mic** button and speak. The browser converts speech into text, which can then be reviewed and sent normally.
 
 The **Voice Replies** toggle allows AI responses to be read aloud using browser text-to-speech.
+
+<img src="/images/session.png" width="1000"></p> |
 
 ### Browser Support
 
